@@ -10,6 +10,20 @@ export const PageLayout = ({ children }) => {
             <Head>
                 <title>Wave at Alberto</title>
                 <link rel="icon" href="/favicon.ico" />
+                <meta name="title" content="Wave at Alberto" />
+                <meta name="description" content="Web3 Dapp build with Nextjs and TailwindCSS. Course of Build a Web3 App with Solidity + Ethereum Smart Contracts." />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://waveportalweb3.vercel.app/" />
+                <meta property="og:title" content="Wave at Alberto" />
+                <meta property="og:description" content="Web3 Dapp build with Nextjs and TailwindCSS. Course of Build a Web3 App with Solidity + Ethereum Smart Contracts." />
+                <meta property="og:image" content="https://assets.zipschool.com/posters/eth_course.png" />
+
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://waveportalweb3.vercel.app/" />
+                <meta property="twitter:title" content="Wave at Alberto" />
+                <meta property="twitter:description" content="Web3 Dapp build with Nextjs and TailwindCSS. Course of Build a Web3 App with Solidity + Ethereum Smart Contracts." />
+                <meta property="twitter:image" content="https://assets.zipschool.com/posters/eth_course.png" />
             </Head>
 
             <main>
