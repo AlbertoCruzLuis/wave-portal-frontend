@@ -1,0 +1,2 @@
+export const WAVE_PORTAL_CONTRACT = process.env.NEXT_PUBLIC_WAVE_PORTAL_CONTRACT
+export const MATIC_CHAIN_ID = parseInt(process.env.NEXT_PUBLIC_MATIC_CHAIN_ID)
