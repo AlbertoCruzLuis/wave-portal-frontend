@@ -17,13 +17,13 @@ export const PageLayout = ({ children }) => {
                 <meta property="og:url" content="https://waveportalweb3.vercel.app/" />
                 <meta property="og:title" content="Wave at Alberto" />
                 <meta property="og:description" content="Web3 Dapp build with Nextjs and TailwindCSS. Course of Build a Web3 App with Solidity + Ethereum Smart Contracts." />
-                <meta property="og:image" content="https://assets.zipschool.com/posters/eth_course.png" />
+                <meta property="og:image" content="https://gateway.pinata.cloud/ipfs/QmQja9VP7KdwvombhUeZV9pPfmRgrNiwR1U6VHb6BHJKBY" />
 
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta property="twitter:url" content="https://waveportalweb3.vercel.app/" />
                 <meta property="twitter:title" content="Wave at Alberto" />
                 <meta property="twitter:description" content="Web3 Dapp build with Nextjs and TailwindCSS. Course of Build a Web3 App with Solidity + Ethereum Smart Contracts." />
-                <meta property="twitter:image" content="https://assets.zipschool.com/posters/eth_course.png" />
+                <meta property="twitter:image" content="https://gateway.pinata.cloud/ipfs/QmQja9VP7KdwvombhUeZV9pPfmRgrNiwR1U6VHb6BHJKBY" />
             </Head>
 
             <main>
