@@ -6,7 +6,7 @@
   </a>
 </p>
 
-> Web3 Dapp build with Nextjs and TailwindCSS. Course of Build a Web3 App with Solidity + Ethereum Smart Contracts.
+> Web3 Dapp build with Nextjs and TailwindCSS. Course of Build a Web3 App with Solidity + Ethereum Smart Contracts. https://buildspace.so/
 
 ![](assets/WavePortalWeb3App.png)
 
