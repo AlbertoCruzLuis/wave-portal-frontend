@@ -6,7 +6,7 @@ import { useEffect, useState, useCallback } from "react"
 import toast from 'react-hot-toast'
 
 export const useWallet = () => {
-    const { error, provider } = useWeb3();
+    const { error, provider, getNetworkMetadata, chainId } = useWeb3();
     const [isLoading, setLoading] = useState(false);
     const [totalWaves, setTotalWaves] = useState(0)
     const [waveList, setWaveList] = useState([])
@@ -37,6 +37,12 @@ export const useWallet = () => {
             setLoading(false)
             toast.success("Thanks you for you wave")
             updateWaves(provider)
+            const lastWave = await getLastWave(provider)
+
+            if (lastWave.isRewarded) {
+                const symbolNetwork = getNetworkMetadata(chainId).symbol
+                toast(`Congratulations. You win 0.0001 ${symbolNetwork}`, { icon: "🎉" })
+            }
         }).catch((error) => {
             setLoading(false)
             if (error.data) {
@@ -55,7 +61,7 @@ export const useWallet = () => {
 	}, []);
     
     useEffect(() => {
-        if (provider) {   
+        if (provider) {  
             updateWaves(provider);
         }
 	}, [provider]);
@@ -85,7 +91,17 @@ const writeWave = (signer, message) => {
 		signer,
 	);
 
-	return wavePortalContract.wave(message);
+	return wavePortalContract.wave(message, { gasLimit: 400000 });
+}
+
+const getLastWave = async (provider) => {
+    const wavePortalContract = new ethers.Contract(
+        WAVE_PORTAL_CONTRACT,
+        wavePortalAbi.abi,
+        provider,
+    );
+
+    return await wavePortalContract.getLastWave();
 }
 
 const getAllWaves = async (provider) => {
@@ -102,6 +118,7 @@ const getAllWaves = async (provider) => {
         message: wave.message,
         from: wave.from,
         timestamp: new Date(wave.timestamp * 1000),
+        isRewarded: wave.isRewarded
     });
 
     return allWaves.map(normalizeWave).sort((a, b) => b.timestamp - a.timestamp);

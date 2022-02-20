@@ -36,7 +36,7 @@ export const WaveList = ({ waveList, totalWaves }) => {
                     <span className="text-white font-bold">Waves</span>
                 </div>
             )}
-            {waveList && waveList.map(({id, from, message, timestamp}) => {
+            {waveList && waveList.map(({id, from, message, timestamp, isRewarded}) => {
                 return (
                     <>
                         {firstWaveEachDay.get(id) && (
@@ -49,7 +49,8 @@ export const WaveList = ({ waveList, totalWaves }) => {
                             key={id}
                             from={from}
                             message={message}
-                            timestamp={timestamp} 
+                            timestamp={timestamp}
+                            isRewarded={isRewarded}
                         />
                     </>
                 )}
