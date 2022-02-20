@@ -3,9 +3,11 @@ import { WalletButton } from '../components/WalletButton';
 import { WaveList } from '../components/WaveList';
 import { useWallet } from '../hooks/useWallet';
 import { TwitterFollowButton } from 'react-twitter-embed';
+import { Loader } from 'components/Loader';
 
 export default function Home() {
   const {
+    isLoading,
     totalWaves,
     waveList,
     sendWave
@@ -24,6 +26,9 @@ export default function Home() {
         <WalletButton />
       </div>
       <TextArea sendWave={sendWave} />
+      <div className='flex justify-center'>
+        { isLoading && <Loader /> }
+      </div>
       <WaveList waveList={waveList} totalWaves={totalWaves} />
     </div>
   )

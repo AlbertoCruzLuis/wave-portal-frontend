@@ -7,6 +7,7 @@ import toast from 'react-hot-toast'
 
 export const useWallet = () => {
     const { error, provider } = useWeb3();
+    const [isLoading, setLoading] = useState(false);
     const [totalWaves, setTotalWaves] = useState(0)
     const [waveList, setWaveList] = useState([])
 
@@ -29,11 +30,15 @@ export const useWallet = () => {
             return
         }
 
+        setLoading(true)
+
         writeWave(provider.getSigner(), message).then(async(transaction) => {
             await transaction.wait();
+            setLoading(false)
             toast.success("Thanks you for you wave")
             updateWaves(provider)
         }).catch((error) => {
+            setLoading(false)
             if (error.data) {
                 toast.error(error.data.message)
             } else {
@@ -56,6 +61,7 @@ export const useWallet = () => {
 	}, [provider]);
 
     return {
+        isLoading,
         totalWaves,
         waveList,
         sendWave
