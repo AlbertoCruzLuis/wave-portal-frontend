@@ -20,22 +20,20 @@ export const WalletButton = () => {
     }
 
     if (error) {
-        if (error.name === "UnsupportedChainIdError") {
-            return (
-                <div className='flex flex-col gap-2'>
-                    <button className='bg-red-500 rounded-md p-2' onClick={_connectWallet}>Network Error</button>
-                    <div>
-                        <h2 className='text-white'>Please connect to {getNetworkMetadata(MATIC_CHAIN_ID).chainName}</h2>
-                        <button className='bg-white rounded-md flex gap-2 px-2' onClick={() => switchNetwork(MATIC_CHAIN_ID)}> 
-                            <div className='flex h-full'>
-                                <HiSwitchHorizontal /> 
-                            </div>
-                            <span className='text-sm font-bold'>Switch Network</span>
-                        </button>
-                    </div>
+        return (
+            <div className='flex flex-col gap-2'>
+                <button className='bg-red-500 rounded-md p-2' onClick={_connectWallet}>Network Error</button>
+                <div>
+                    <h2 className='text-white'>Please connect to {getNetworkMetadata(MATIC_CHAIN_ID).chainName}</h2>
+                    <button className='bg-white rounded-md flex gap-2 px-2' onClick={() => switchNetwork(MATIC_CHAIN_ID)}> 
+                        <div className='flex h-full'>
+                            <HiSwitchHorizontal /> 
+                        </div>
+                        <span className='text-sm font-bold'>Switch Network</span>
+                    </button>
                 </div>
-            )
-        }
+            </div>
+        )
     }
 
     if (!address) {
